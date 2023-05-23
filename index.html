@@ -1,66 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Appointment Application</title>
+    <title>Photography By Tuvshin</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        h1 {
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
             text-align: center;
         }
 
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
+        h1 {
+            margin: 0;
         }
 
-        label, input, select {
+        /* Hero Section Styles */
+        .hero {
+            background-image: url('photography-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        /* Appointment Section Styles */
+        .appointment {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .appointment h3 {
+            margin: 0;
+        }
+
+        .appointment-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .appointment-form label, .appointment-form input, .appointment-form select {
             display: block;
             margin-bottom: 10px;
+            width: 100%;
         }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
+        .appointment-form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
             padding: 10px;
             border: none;
             cursor: pointer;
         }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        .appointment-form input[type="submit"]:hover {
+            background-color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Make an Appointment</h1>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <header>
+        <h1>Tuvshin's Photography</h1>
+    </header>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+    <section class="hero">
+        <h2>Capture the Moments</h2>
+    </section>
 
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
+    <section class="appointment">
+        <h3>Book an Appointment</h3>
+        <div class="appointment-form">
+            <form id="appointmentForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="service">Service:</label>
-            <select id="service" name="service" required>
-                <option value="">Select a service</option>
-                <option value="haircut">Photoshoot $19.99/hr</option>
-                <option value="massage">Photo Edits $10/hr </option>
-                <option value="facial"> Photo Albums $10/hr </option>
-            </select>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
 
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</body>
-</html>
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="service">Service:</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="portrait">Portrait</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="landscape">Landscape</option>
+                </select>
+
+                <input type="submit" value="Book Now">
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Appointment Form Submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var date = document.getElementById('date').value;
+            var time
